@@ -13,7 +13,7 @@
      <input type="number" v-model="card.cardYear" size="2" min="21" max="26" value="0" class="col-1" placeholder="YY"/>
       
       <label>Bank</label>
-     <input list="browsers"  v-model="card.vendor" optional-value="1" class="col-2"/>
+     <input list="browsers"  v-model="card.cardVendor" optional-value="1" class="col-2"/>
       <datalist id="browsers">
         <option value="Bitcoin"/>
         <option value="Blockchain Inc"/>
@@ -30,29 +30,27 @@
 <script>
 
 export default {
-
+name: "CardForm",
  props: {
      card: {
-          type: Object,
+          type: Object
             
-        },
+        }
     },
  methods: {
      onSubmit(e) {
          const card ={
              id: Date.now(),
-             holder: this.firstName,
-             vendor: this.vendor,
-             number: this.cardClass,
-             validMonth: this.cardMonth,
-             validYear: this.cardYear,
+             firstName: this.card.firstName,
+             cardVendor: this.card.cardVendor,
+             cardClass: this.card.cardClass,
+             cardMonth: this.card.cardMonth,
+             cardYear: this.card.cardYear,
          }
          this.$root.cardStack.push(card);
+         this.$router.push("/");
          e.preventDefault();
      },
-     vendor() {
-this.$root.card.vendor=this.card.vendor;
-     }
  },
 }
 </script>
@@ -85,7 +83,7 @@ this.$root.card.vendor=this.card.vendor;
     width: 100%;
 }
 
-#app {
+.app {
     font-family: Avenir,Helvetica,Arial,sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

@@ -1,11 +1,11 @@
 <template>
 
    <div class="home">
-    <Top v-bind:cardclass="cardClass"></Top>
+  
  <article class="card" v-bind:class="card.vendor">
    <header>
 
-  <img v-if="card.vendor === 'Bitcoin'" src="@/assets/chip-dark.svg"/>
+  <img v-if="card.cardVendor === 'Bitcoin'" src="@/assets/chip-dark.svg"/>
   <img v-else src="@/assets/chip-light.svg"/> 
   
    </header> 
@@ -137,42 +137,6 @@ computed: {
     text-align: right;
 }
 
-input{
-  -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    color: -internal-light-dark(black, white);
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: start;
-    appearance: textfield;
-    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
-    -webkit-rtl-ordering: logical;
-    cursor: text;
-    margin: 0em;
-    font: 400 13.3333px Arial;
-}
-
-.card-form {
-    margin: 2rem 0 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 1rem;
-}
-.card-form input {
-    border: 1px solid #000;
-    border-radius: .25rem;
-    padding: .5rem;
-    height: 2.6rem;
-    margin: 0 0 .8rem;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-size: 1rem;
-    width: 100%;
-}
 
 .Bitcoin {
     background: linear-gradient(.689turn,hsla(0,0%,100%,.15),hsla(0,0%,100%,0) 99.07%),#ffae34;

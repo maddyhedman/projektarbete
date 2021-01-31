@@ -1,10 +1,8 @@
 <template>
  <div class="home">
-    <Top v-bind:cardclass="cardClass"></Top>
+
     <Card v-bind:card="card"></Card>
     <CardForm v-bind:card="card"></CardForm>
-
-  
    </div>
 </template>
 <script>
@@ -23,10 +21,11 @@ export default {
     firstName: "",
     cardMonth: "",
     cardYear: "",
+    cardVendor: "",
    }
  }
  },
- 
+
  computed: {
    cardStack() {
      return this.$root.cardStack; 
