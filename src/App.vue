@@ -6,7 +6,9 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/AddCard">Add Card</router-link>
     </div>
+  
   <router-view />
+     
   </div>
 </template>
 
@@ -24,6 +26,9 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #nav {
@@ -38,6 +43,7 @@
     }
   }
 }
+
 
 
 </style>

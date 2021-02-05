@@ -2,11 +2,29 @@
 
    <div class="home">
   
- <article class="card" v-bind:class="card.vendor">
+ <article class="card" v-bind:class="{Evil:card.cardVendor === 'Evil Corp',
+   Ninja:card.cardVendor === 'Ninja Bank',
+   Blockchain:card.cardVendor === 'Blockchain Inc',
+   Bitcoin:card.cardVendor === 'Bitcoin'}">
    <header>
 
-  <img v-if="card.cardVendor === 'Bitcoin'" src="@/assets/chip-dark.svg"/>
+  <img v-if="card.cardVendor === 'Bitcoin'" 
+  src="@/assets/chip-dark.svg" />
   <img v-else src="@/assets/chip-light.svg"/> 
+  <img v-if="card.cardVendor === 'Bitcoin'" 
+  src="@/assets/vendor-bitcoin.svg"/>
+
+
+  <img v-else-if="card.cardVendor === 'Blockchain Inc'"
+  src="@/assets/vendor-blockchain.svg"/>
+  <img v-else-if="card.cardVendor === 'Evil Corp'"
+  src="@/assets/vendor-evil.svg"/>
+  <img v-else-if="card.cardVendor === 'Bitcoin'"
+  src="@/assets/vendor-bitcoin.svg"/>
+  <img v-else-if="card.cardVendor === 'Ninja Bank'"
+  src="@/assets/vendor-ninja.svg"/>
+
+  
   
    </header> 
    <section class="number" v-if="card.cardClass">{{cardNumber}}</section>

@@ -1,10 +1,11 @@
 <template>
 <section>
-<div v-for="card in cardarray" v-bind:key="card.id">
+<div class="cardContainer" v-for="(card, index) in cardarray" v-bind:key="card.id" @click="addActiveCard(index)">
     <Card v-bind:card="card"/>
+    <button @click="removeCard(index)" class="removeCard taBort" >X</button>
     </div>
     </section>
-  
+
 </template>
 
 <script>
@@ -14,36 +15,75 @@ export default {
     name: "cardarray",
 props: {
     cardarray: {
-        type: Array,
+        type: Array
 
     },
 },
 components: {
-    Card,
+    Card
 },
+methods: {
+    removeCard(index) {
+        this.$root.cardStack.splice(index, 1);
+    },
+   addActiveCard(index){
+       this.$emit('addActiveCard', index) 
+   }
+},
+
 };
+
 </script>
 
 <style scoped>
+
+.removeCard{
+    /* margin-top: 90px; */
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    color: rgb(168, 46, 46);
+    border: .125rem solid rgb(119, 56, 56);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: .5rem;
+    /* margin: 2rem 0; */
+
+}
+.cardContainer {
+    position: relative;
+  
+}
+.taBort{
+    position: absolute;
+ top: 0;
+    right: 0;
+
+
+}
+
+
 #home {
-   width: 352px;  
+   width: 352px;
 }
 main {
   display: block;
 }
 #app {
+    
     font-family: Avenir,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-family: PT Mono,monospace;
+   -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+     font-family: PT Mono,monospace;
     padding: 1rem;
     height: 100vh;
-     max-width: 26rem;  
-   
+     max-width: 26rem;
+
     margin: 0 auto;
     -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
+    box-sizing: border-box; 
+} 
 .top {
     display: -webkit-box;
     display: -ms-flexbox;

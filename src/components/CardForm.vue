@@ -56,6 +56,7 @@ name: "CardForm",
 </script>
 
 <style scoped>
+
 .col-1 {
     grid-column: auto/span 1;
     border: 1px solid #000;
